@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Public Headers">
+      <UniqueIdentifier>{66ec37b5-6516-4320-8f5e-af021e07fc2a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils.h">
@@ -44,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="MicroCodeCompiler.h">
-      <Filter>Header Files</Filter>
+      <Filter>Public Headers</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>
