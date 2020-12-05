@@ -1,0 +1,51 @@
+#def "./desc.micdesc"
+*fetch {
+  MI|CO;
+  RO|II|CE;
+}
+*NOP: 0{}
+
+*LDA: b0001{
+  IO|MI;
+  RO|AI;
+}
+*ADD: b0010{
+  IO|MI;
+  RO|BI;
+  EO|AI|FI;
+}
+*SUB: b0011{
+  IO|MI;
+  RO|BI;
+  EO|AI|FI|SU;
+}
+*STA: b0100{
+  IO|MI;
+  AO|RI;
+}
+*LDI: b0101{
+  IO|AI;
+}
+*JMP: b0110{
+  IO|J;
+}
+
+
+//notice, these are more understandable
+*JC: b0111{
+  if(c){
+    IO|J;
+  }
+}
+*JZ: b1000{
+  if(z){
+    IO|J;
+  }
+}
+
+*OUT: b1110{
+  AO|OI;
+}
+*HLT: b1111{
+  HLT;
+}

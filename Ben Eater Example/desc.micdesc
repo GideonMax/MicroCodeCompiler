@@ -1,0 +1,10 @@
+eepromcount: 2
+eepromaddresslength: 10
+EepromOutputLength: 8
+Address: step[3], instruction[4], 0, c, z
+/*
+notice:
+the seventh pin is ignored because ben used it for something
+that I won't do because the compiler will already split things into files
+*/
+output: FI, J, CO, CE, OI, BI, SU, EO, AO, AI, II, IO, RO, RI, MI, HLT
