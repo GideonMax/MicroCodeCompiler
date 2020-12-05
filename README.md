@@ -9,7 +9,7 @@ to use the compiler, just open a .miccode file with it.
 
 using the library:
 
-build
+build the library, note that in debug mode, the library makes debug checks, in release mode, the library assumes that the input is correct.
 
 include the header file and make sure the .lib file is accessible to the project.
 
