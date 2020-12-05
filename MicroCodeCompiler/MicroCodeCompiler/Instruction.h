@@ -41,12 +41,13 @@ struct Instruction {
 		size_t eq = instruction.find('=');
 		if (eq == -1) {
 			Set_A = Expression(instruction, descriptor);
-			return;
 		}
-		std::string first = instruction.substr(0, eq);
-		std::string second = instruction.substr(eq+1ULL, instruction.size()-eq-1);
-		Set_A = Expression(first, descriptor);
-		Set_B = Expression(second, descriptor);
+		else {
+			std::string first = instruction.substr(0, eq);
+			std::string second = instruction.substr(eq+1ULL, instruction.size()-eq-1);
+			Set_A = Expression(first, descriptor);
+			Set_B = Expression(second, descriptor);
+		}
 		Eeprom = Set_A.EEprom;
 		return;
 	}

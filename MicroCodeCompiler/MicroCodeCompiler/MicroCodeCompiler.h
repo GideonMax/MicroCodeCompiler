@@ -14,7 +14,7 @@ namespace MicroCodeCompiler {
 		/// </summary>
 		size_t Run(int Eeprom, uint64_t*& Out);
 	private:
-		char padding[170];
+		char padding[209];
 	};
 	Runtime Compile(char* FilePath);
 	void Write(Runtime& r, char* FilePath);

@@ -34,7 +34,7 @@ namespace MicroCodeCompiler {
 		static void Run(int Eeprom, uint64_t* Out, std::vector<Instruction>& code, uint64_t& Address, uint64_t increment);
 		uint64_t MakeRoomForStep(uint64_t Address);
 		MicroCodeDescriptor Descriptor;
-		Function& Fetch;
+		Function Fetch;
 		MicroCodeDescriptor::AddressWordPart& instruction;
 		MicroCodeDescriptor::AddressWordPart& Step;
 		std::map<uint64_t, Function> Code;

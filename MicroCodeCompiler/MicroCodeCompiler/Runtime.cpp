@@ -1,4 +1,5 @@
 #include "MicroCodeCompilerPrivate.h"
+#include <filesystem>
 
 MicroCodeCompiler::Runtime::Runtime(std::map<uint64_t, Function> code, MicroCodeDescriptor descriptor) :
 	Descriptor(descriptor),
@@ -7,6 +8,7 @@ MicroCodeCompiler::Runtime::Runtime(std::map<uint64_t, Function> code, MicroCode
 	Fetch(code[-1]),
 	EepromCount(descriptor.EepromCount) {
 	Code = code;
+	Fetch = Code[-1];
 }
 size_t MicroCodeCompiler::Runtime::Run(int Eeprom, uint64_t*& Out) {
 
@@ -103,6 +105,9 @@ void MicroCodeCompiler::Write(MicroCodeCompiler::Runtime& r, char* FilePath) {
 	for (int i = 0; i < r.EepromCount; i++) {
 		uint64_t* a;
 		auto size= r.Run(i, a);
+		if (!std::filesystem::exists(path)) {
+			std::filesystem::create_directory(path);
+		}
 		std::ofstream stream = std::ofstream(path +std::to_string(i)+ ".out",std::ios::binary);
 		stream.write((char*)a, size*sizeof(uint64_t));
 		stream.close();
