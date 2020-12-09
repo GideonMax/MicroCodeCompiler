@@ -63,24 +63,21 @@ uint64_t MicroCodeCompiler::Runtime::MakeRoomForStep(uint64_t Address) {
 
 std::string ParseFirstLine(std::string line) {
 	size_t i = line.find('"');
-#ifdef _DEBUG
 	if (i == -1)Utils::Error("Expected descriptor file path");
-#endif // _DEBUG
 
 	line = line.substr(i + 1ULL);
 	i = line.find('"');
-#ifdef _DEBUG
 	if (i == -1)Utils::Error("Error parsing description file path");
-#endif // _DEBUG
 
 	line = line.substr(0, i);
 	return line;
 }
 MicroCodeCompiler::Runtime MicroCodeCompiler::Compile(char* FilePath) {
 
-	Utils::ChangePathFormat(FilePath);
+	char* path;
+	Utils::ChangePathFormat(FilePath, path);
 
-	std::string content = Utils::ReadCodeFile(FilePath);
+	std::string content = Utils::ReadCodeFile(path);
 
 	//since every function starts with *, we can use it to split the file into the first line and the function
 	std::vector<std::string> Parts = Utils::Split(content, '*');
@@ -88,7 +85,7 @@ MicroCodeCompiler::Runtime MicroCodeCompiler::Compile(char* FilePath) {
 	std::string relativeDescriptorFilePath = ParseFirstLine(Parts[0]);
 
 	//resolves the path of the descriptor file
-	std::string descriptorFilePath = Utils::ResolveRelativePath(FilePath, relativeDescriptorFilePath);
+	std::string descriptorFilePath = Utils::ResolveRelativePath(path, relativeDescriptorFilePath);
 
 	MicroCodeDescriptor descriptor = MicroCodeDescriptor(descriptorFilePath.c_str());
 

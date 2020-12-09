@@ -162,7 +162,13 @@
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CodeTreePart.cpp" />
+    <ClCompile Include="Expression.cpp" />
+    <ClCompile Include="Function.cpp" />
+    <ClCompile Include="Instruction.cpp" />
+    <ClCompile Include="MicroCodeDescriptor.cpp" />
     <ClCompile Include="Runtime.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
