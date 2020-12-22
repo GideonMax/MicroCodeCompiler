@@ -6,7 +6,9 @@ Instruction::Instruction(std::string& condition, MicroCodeDescriptor& descriptor
 	:Condition(Expression(condition, descriptor)),
 	type(InstructionType::Conditional),
 	IfBody(ifBody),
-	ElseBody(elseBody) {}
+	ElseBody(elseBody),
+	Eeprom(-1) {}
+
 Instruction::Instruction(std::string instruction, MicroCodeDescriptor& descriptor) {
 	type = InstructionType::Set;
 	size_t eq = instruction.find('=');

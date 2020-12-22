@@ -15,7 +15,7 @@ bool Utils::AllNewLines(std::string& str) {
 void Utils::ChangePathFormat(char* Path, char *& Out) {
 	size_t length = strlen(Path)+1;
 	Out = new char[length];
-	for (int i = 0;i<length; i++) {
+	for (size_t i = 0;i<length; i++) {
 		if (Path[i] == '\\')Out[i] = '/';
 		else Out[i] = Path[i];
 	}
@@ -121,9 +121,4 @@ uint64_t Utils::ParseConstantExpression(std::string& str) {
 	if (base != 10)str = str.substr(1);
 
 	return std::stoi(str, nullptr, base);
-}
-
-template<typename Key, typename Value >
-bool Utils::MapContainsKey(std::map<Key, Value>& map, Key key) {
-	return map.count(key) == 1;
 }

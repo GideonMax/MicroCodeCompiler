@@ -9,7 +9,8 @@
 /// </summary>
 class MicroCodeDescriptor {
 public:
-	uint64_t EepromCount = 0, EepromAddressLength = 0, EepromOutputLength = 0;
+	size_t EepromCount = 0;
+	uint64_t EepromAddressLength = 0, EepromOutputLength = 0;
 	std::vector<uint64_t> DefaultValues;
 	MicroCodeDescriptor();
 	MicroCodeDescriptor(const char* FilePath);

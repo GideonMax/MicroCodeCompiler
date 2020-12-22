@@ -57,6 +57,4 @@ namespace Utils {
 	/// <returns></returns>
 	uint64_t ParseConstantExpression(std::string& str);
 
-	template<typename Key, typename Value >
-	bool MapContainsKey(std::map<Key, Value>& map, Key key);
 }

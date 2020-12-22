@@ -5,7 +5,7 @@
 #include "Expression.h"
 
 struct Instruction {
-	int Eeprom;
+	uint64_t Eeprom;
 
 	enum class InstructionType {
 		Set,
@@ -15,10 +15,10 @@ struct Instruction {
 	Instruction::InstructionType type;
 
 	//Set instruction
-	Expression Set_A =Expression();//the location of the output word at which you should set
-	Expression Set_B =Expression();//the value to set
+	Expression Set_A = Expression();//the location of the output word at which you should set
+	Expression Set_B = Expression();//the value to set
 
-	Expression Condition=Expression();
+	Expression Condition = Expression();
 	std::vector<Instruction> IfBody;
 	std::vector<Instruction> ElseBody;
 
@@ -27,5 +27,6 @@ struct Instruction {
 	//CTOR for conditionals
 	Instruction(std::string& condition, MicroCodeDescriptor& descriptor, std::vector<Instruction> ifBody, std::vector<Instruction> elseBody);
 
+	//CTOR for set instruction
 	Instruction(std::string instruction, MicroCodeDescriptor& descriptor);
 };

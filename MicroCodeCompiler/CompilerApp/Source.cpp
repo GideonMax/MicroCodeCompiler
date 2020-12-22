@@ -9,8 +9,6 @@ int main(int ArgumentCount, char** Arguments) {
 	}
 	try {
 		MicroCodeCompiler::Runtime r = MicroCodeCompiler::Compile(Arguments[1]);
-		uint64_t* a;
-		//r.Run(0, a);
 		MicroCodeCompiler::Write(r, Arguments[1]);
 	}
 	catch (std::runtime_error err) {

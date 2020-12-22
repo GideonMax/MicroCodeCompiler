@@ -52,8 +52,7 @@ MicroCodeDescriptor::MicroCodeDescriptor(const char* FilePath) {
 			(DefaultValues)[word.Eeprom] |= ((1ULL << word.Length) - 1) << word.Index;
 		}
 	}
-	if (!Utils::MapContainsKey<std::string, AddressWordPart>(Address, "instruction") ||
-		!Utils::MapContainsKey<std::string, AddressWordPart>(Address, "step"))
+	if (Address.count("instruction")==0 || Address.count("step") == 0)
 		Utils::Error("Did not find step and/or instruction address part");
 
 }
@@ -160,7 +159,7 @@ void MicroCodeDescriptor::ParseOutput(std::string output) {
 			else
 			{
 				length *= 10;//if you are not parsing the name and all the other conditions have failed, you are parsing the length, in that case, this parses the number
-				length += c - '0';
+				length += (size_t)c - '0';
 			}
 			break;
 		}

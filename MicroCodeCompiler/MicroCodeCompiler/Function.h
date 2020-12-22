@@ -3,7 +3,7 @@
 #include <sstream>
 #include <vector>
 #include "MicroCodeDescriptor.h"
-#include "CodeTreePart.h"
+#include "CodeTreeNode.h"
 #include "Instruction.h"
 
 /// <summary>
@@ -11,12 +11,20 @@
 /// </summary>
 class Function {
 public:
+
 	bool isFetch = false;
-	uint64_t Alias = -1;//this is the value of the function address part
+	//this is the opcode of the instruction (Address part: "instruction")
+	uint64_t Opcode = -1;
+	// default CTOR, does nothing
 	Function();
+	/// <summary>
+	/// parses the function
+	/// </summary>
+	/// <param name="Content">the code that is the function</param>
 	Function(std::string& Content, MicroCodeDescriptor& Descriptor);
 	std::vector<Instruction> Instructions;
 private:
+	//functions the class uses internally to parse the body
 	void ParseBody(std::string& body, MicroCodeDescriptor& Descriptor, std::vector<Instruction>& Out);
-	static void ParseBody(CodeTreePart& Code, MicroCodeDescriptor& Descriptor, std::vector<Instruction>& Out);
+	static void ParseBody(CodeTreeNode& Code, MicroCodeDescriptor& Descriptor, std::vector<Instruction>& Out);
 };

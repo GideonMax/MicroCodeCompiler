@@ -4,17 +4,17 @@
 #include "MicroCodeDescriptor.h"
 
 /// <summary>
-/// given an expression, this parses it and becomes a function which given the current address evaluates the expression.
-/// if the expression is a constant value or an Address part, the function will return the value itself.
-/// if it is a Control word part, the function will return the index.
+/// this class is for parsing expressions
+/// by parsing, it sets its base class (std::function) to a function the evaluates the expression given the address
 /// </summary>
 class Expression : public std::function<uint64_t(uint64_t)> {
 public:
-	int EEprom;//if the expression refers to a control word part, 
+	//if the expression refers to a control word part, this is the eeprom it belongs to
+	uint64_t EEprom;
 private:
 	/// <summary>
 	/// since the function has to be set in the initializer list of the constructor,
-	///I made this as doing all the logic in the initializer list is impossible
+	/// I made this as doing all the logic in the initializer list is impossible
 	/// </summary>
 	/// <param name="Expr">the code for the expression</param>
 	/// <param name="descriptor">the descriptor</param>

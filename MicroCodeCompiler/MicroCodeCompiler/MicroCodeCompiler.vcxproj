@@ -147,13 +147,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CodeTreePart.h" />
+    <ClInclude Include="CodeTreeNode.h" />
     <ClInclude Include="Expression.h" />
     <ClInclude Include="Function.h" />
     <ClInclude Include="Instruction.h" />
-    <ClInclude Include="MicroCodeCompilerPrivate.h" />
+    <ClInclude Include="MicroCodeCompiler.h" />
     <ClInclude Include="MicroCodeDescriptor.h" />
-    <CopyFileToFolders Include="MicroCodeCompiler.h">
+    <CopyFileToFolders Include="GMMicroCodeCompiler.h">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
@@ -162,10 +162,11 @@
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CodeTreePart.cpp" />
+    <ClCompile Include="CodeTreeNode.cpp" />
     <ClCompile Include="Expression.cpp" />
     <ClCompile Include="Function.cpp" />
     <ClCompile Include="Instruction.cpp" />
+    <ClCompile Include="MicroCodeCompiler.cpp" />
     <ClCompile Include="MicroCodeDescriptor.cpp" />
     <ClCompile Include="Runtime.cpp" />
     <ClCompile Include="Utils.cpp" />

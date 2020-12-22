@@ -30,13 +30,13 @@
     <ClInclude Include="Expression.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CodeTreePart.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MicroCodeDescriptor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MicroCodeCompilerPrivate.h">
+    <ClInclude Include="CodeTreeNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MicroCodeCompiler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,13 +59,16 @@
     <ClCompile Include="Expression.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CodeTreePart.cpp">
+    <ClCompile Include="MicroCodeCompiler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CodeTreeNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="MicroCodeCompiler.h">
-      <Filter>Public Headers</Filter>
+    <CopyFileToFolders Include="GMMicroCodeCompiler.h">
+      <Filter>Header Files</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>
